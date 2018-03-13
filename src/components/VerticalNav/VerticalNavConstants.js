@@ -154,9 +154,10 @@ correctDepth.defaultProps = {
 };
 
 const isNavItem = node =>
-  node.type.displayName &&
-  node.type.displayName.includes('VerticalNav') &&
-  node.type.displayName.includes('Item');
+  node.type.displayName && (
+    (node.type.displayName.includes('VerticalNav') &&
+     node.type.displayName.includes('Item')) ||
+    node.type.displayName.includes('Route')); 
 
 const getItemProps = props => {
   const itemChildren = filterChildren(props.children, isNavItem);
